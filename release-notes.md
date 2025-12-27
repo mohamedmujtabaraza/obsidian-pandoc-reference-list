@@ -1,1 +1,1 @@
-86918b5 Fix BBT API change
+6e39468 Updated parser for footnote-style citation like [^key]

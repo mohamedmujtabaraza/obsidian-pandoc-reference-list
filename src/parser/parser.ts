@@ -429,7 +429,7 @@ export function getCitationSegments(str: string, ignoreLinks: boolean = false) {
       }
     }
 
-    if (c === '@' && isValidPreKey(prev)) {
+    if (c === '^' && isValidPreKey(prev)) {
       if (seekState && state.shouldCancelSeek) {
         segments.push(seekState.segment);
         seekState = null;
@@ -462,7 +462,7 @@ export function getCitationSegments(str: string, ignoreLinks: boolean = false) {
         continue;
       }
 
-      if (prev === '@') {
+      if (prev === '^') {
         if (alphaNumeric.test(c) || c === '_') {
           endCurrent(i);
           state.currentSegment = newCurrent(i, c, SegmentType.key);
@@ -626,7 +626,7 @@ export function getCitationSegments(str: string, ignoreLinks: boolean = false) {
         continue;
       }
 
-      if (c === '-' && next === '@') {
+      if (c === '-' && next === '^') {
         state.shouldCancelSeek = false;
         endCurrent(i);
         state.currentSegment = newCurrent(i, c, SegmentType.suppressor);
